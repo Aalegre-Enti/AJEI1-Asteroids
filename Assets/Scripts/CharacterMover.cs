@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CharacterMover : MonoBehaviour
 {
+    public GameObject bala;
     public float movement_speed = 1;
     public float movement_rotation = 1;
     Rigidbody2D rb;
@@ -32,5 +33,11 @@ public class CharacterMover : MonoBehaviour
             anim.SetBool("Movimiento", false);
         }
         transform.eulerAngles = transform.eulerAngles + new Vector3(0, 0, -horizontal * movement_rotation * Time.deltaTime);
+
+        if (Input.GetButtonDown("Jump"))
+        {
+            Instantiate(bala, transform.position, Quaternion.identity);
+        }
+        
     }
 }
