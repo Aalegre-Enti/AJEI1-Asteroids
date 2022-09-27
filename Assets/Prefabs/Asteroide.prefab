@@ -13,9 +13,11 @@ GameObject:
   - component: {fileID: 8179511283572255713}
   - component: {fileID: 8179511283572255716}
   - component: {fileID: 8179511283572255717}
+  - component: {fileID: 8981753553134603128}
+  - component: {fileID: 7488651580276579244}
   m_Layer: 0
   m_Name: Asteroide
-  m_TagString: Untagged
+  m_TagString: Destruible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -142,3 +144,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vertical: 6
   horizontal: 10
+--- !u!58 &8981753553134603128
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8179511283572255712}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
+--- !u!114 &7488651580276579244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8179511283572255712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb750d8147e1e0948b90fd716bda927e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gestor: {fileID: 0}

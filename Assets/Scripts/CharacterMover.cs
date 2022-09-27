@@ -36,7 +36,8 @@ public class CharacterMover : MonoBehaviour
 
         if (Input.GetButtonDown("Jump"))
         {
-            Instantiate(bala, transform.position, Quaternion.identity);
+            GameObject objeto = Instantiate(bala, transform.position, transform.rotation);
+            Destroy(objeto, 2);
         }
         
     }
