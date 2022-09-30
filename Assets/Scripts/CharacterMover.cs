@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CharacterMover : MonoBehaviour
 {
+    public GameObject particulasMuerte;
     public GameObject bala;
     public float movement_speed = 1;
     public float movement_rotation = 1;
@@ -40,5 +41,13 @@ public class CharacterMover : MonoBehaviour
             Destroy(objeto, 2);
         }
         
+    }
+
+    public void Muerte()
+    {
+        GameManager.instance.vidas = GameManager.instance.vidas - 1;
+        Debug.Log("Player muerto");
+        GameObject particulas = Instantiate(particulasMuerte, transform.position, transform.rotation);
+        Destroy(particulas, 2);
     }
 }

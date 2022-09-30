@@ -157,6 +157,7 @@ MonoBehaviour:
   asteroides_max: 8
   spawn_max_x: 10
   spawn_max_y: 6
+  asteroides_actuales: 0
 --- !u!4 &269008511
 Transform:
   m_ObjectHideFlags: 0
@@ -256,6 +257,52 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &606269117
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 606269119}
+  - component: {fileID: 606269118}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &606269118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 606269117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c32aa7e024b6efc41a69d51191cfd32b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vidas: 3
+  puntuacion: 0
+--- !u!4 &606269119
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 606269117}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.038248878, y: 0.08840333, z: 0.2933936}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1873981061
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,9 +317,10 @@ GameObject:
   - component: {fileID: 1873981065}
   - component: {fileID: 1873981066}
   - component: {fileID: 1873981067}
+  - component: {fileID: 1873981068}
   m_Layer: 0
   m_Name: Personaje
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -377,6 +425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce6a66219d1a87b428c91dcd5777367d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particulasMuerte: {fileID: 8885059625275663596, guid: 48837e18ca0984341b33c0dc502219ec, type: 3}
   bala: {fileID: 4079527390284611135, guid: d4445a1537d99c341b74d0d0b3021f75, type: 3}
   movement_speed: 200
   movement_rotation: 200
@@ -414,3 +463,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vertical: 6
   horizontal: 10
+--- !u!58 &1873981068
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873981061}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.4

@@ -8,25 +8,30 @@ public class AsteroideController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        gestor.asteroides_actuales = gestor.asteroides_actuales + 1;
     }
 
     public void Muerte()
     {
+        if (transform.localScale.x > 0.25f) //Alternativa 0.6
+        {
+            GameObject asteroide1 = Instantiate(gestor.asteroide_base, transform.position, transform.rotation);
+            asteroide1.GetComponent<AsteroideController>().gestor = gestor;
+            asteroide1.transform.localScale = transform.localScale * 0.5f; //Alternativa 0.75
 
+            GameObject asteroide2 = Instantiate(gestor.asteroide_base, transform.position, transform.rotation);
+            asteroide2.GetComponent<AsteroideController>().gestor = gestor;
+            asteroide2.transform.localScale = transform.localScale * 0.5f; //Alternativa 0.75
+        }
+        gestor.asteroides_actuales = gestor.asteroides_actuales - 1;
+        Destroy(gameObject);
     }
 
-    //void OnDestroy()
-    //{
-    //    GameObject asteroide1 = Instantiate(gestor.asteroide_base, transform.position, transform.rotation);
-    //    asteroide1.GetComponent<AsteroideController>().gestor = gestor;
-    //    GameObject asteroide2 = Instantiate(gestor.asteroide_base, transform.position, transform.rotation);
-    //    asteroide2.GetComponent<AsteroideController>().gestor = gestor;
-    //}
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Player")
+        {
+            collision.GetComponent<CharacterMover>().Muerte();
+        }
+    }
 }

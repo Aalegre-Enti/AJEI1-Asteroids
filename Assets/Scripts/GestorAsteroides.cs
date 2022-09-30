@@ -9,8 +9,24 @@ public class GestorAsteroides : MonoBehaviour
     public int asteroides_max = 8;
     public float spawn_max_x = 10;
     public float spawn_max_y = 6;
-    // Start is called before the first frame update
+
+    public int asteroides_actuales = 0;
+    
     void Start()
+    {
+        CrearAsteroides();
+    }
+
+    void Update()
+    {
+        if(asteroides_actuales <= 0)
+        {
+            asteroides_actuales = 0;
+            CrearAsteroides();
+        }
+    }
+
+    public void CrearAsteroides()
     {
         int total = Random.Range(asteroides_min, asteroides_max);
         for (int i = 0; i < total; i++)
@@ -20,11 +36,5 @@ public class GestorAsteroides : MonoBehaviour
             GameObject temp = Instantiate(asteroide_base, posicion, Quaternion.Euler(new Vector3(0, 0, Random.Range(0, 365))));
             temp.GetComponent<AsteroideController>().gestor = this;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
