@@ -49,5 +49,14 @@ public class CharacterMover : MonoBehaviour
         Debug.Log("Player muerto");
         GameObject particulas = Instantiate(particulasMuerte, transform.position, transform.rotation);
         Destroy(particulas, 2);
+        if (GameManager.instance.vidas > 0)
+        {
+            transform.position = new Vector3(0, 0);
+            rb.velocity = new Vector3(0, 0);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }

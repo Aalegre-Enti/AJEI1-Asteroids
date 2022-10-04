@@ -24,6 +24,7 @@ public class AsteroideController : MonoBehaviour
             asteroide2.transform.localScale = transform.localScale * 0.5f; //Alternativa 0.75
         }
         gestor.asteroides_actuales = gestor.asteroides_actuales - 1;
+        GameManager.instance.puntuacion = GameManager.instance.puntuacion + 100;
         Destroy(gameObject);
     }
 
