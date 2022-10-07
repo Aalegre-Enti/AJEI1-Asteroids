@@ -33,8 +33,12 @@ public class GestorAsteroides : MonoBehaviour
         {
             Debug.Log("Instanciado asteroide numero: " + i);
             Vector3 posicion = new Vector3(Random.Range(-spawn_max_x, spawn_max_x), Random.Range(-spawn_max_y, spawn_max_y));
-            GameObject temp = Instantiate(asteroide_base, posicion, Quaternion.Euler(new Vector3(0, 0, Random.Range(0, 365))));
-            temp.GetComponent<AsteroideController>().gestor = this;
+
+            if (Vector3.Distance(posicion, new Vector3(0, 0, 0)) > 3)
+            {
+                GameObject temp = Instantiate(asteroide_base, posicion, Quaternion.Euler(new Vector3(0, 0, Random.Range(0, 365))));
+                temp.GetComponent<AsteroideController>().gestor = this;
+            }
         }
     }
 }
